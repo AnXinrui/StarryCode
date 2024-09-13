@@ -1,0 +1,27 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: StarryCode-backend
+  profiles:
+    active: default   # 上线时改为 prod
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://192.168.159.101/StarryCode?useSSL=false&serverTimezone=UTC
+    username: root
+    password: 123
+  data:
+    redis:
+      database: 1
+      host: 192.168.159.101
+      port: 6379
+      password: 123456
+
+mybatis-plus:
+  configuration:
+    map-underscore-to-camel-case: false # 关闭驼峰映射
+  global-config:
+    db-config:
+      logic-delete-field: isDeleted # 全局逻辑删除字段名
+      logic-delete-value: 1 # 逻辑已删除值
+      logic-not-delete-value: 0 # 逻辑未删除值

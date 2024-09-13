@@ -4,7 +4,7 @@ import GlobalHeader from "../components/GlobalHeader.vue";
 </script>
 
 <template>
-  <a-layout style="height: 400px;">
+  <a-layout style="min-height: 100vh;">
     <a-layout-header class="header" >
       <GlobalHeader />
     </a-layout-header>
@@ -14,9 +14,9 @@ import GlobalHeader from "../components/GlobalHeader.vue";
 </template>
 
 <style scoped>
- .header {
-   background-color: darkgrey;
- }
+.header {
+  margin-top: 8px;
+}
  .content {
    background: linear-gradient(to right, #aaa, #fff);
    margin-bottom: 16px;
@@ -24,7 +24,7 @@ import GlobalHeader from "../components/GlobalHeader.vue";
  .footer {
    background-color: #efefef;
    padding: 16px;
-   position: absolute;
+   position: sticky;
    bottom: 0;
    left: 0;
    right: 0;

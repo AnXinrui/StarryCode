@@ -21,23 +21,34 @@ const doMenuClick = async (key: string) => {
 </script>
 
 <template>
-  <div class="menu-demo">
-    <a-menu mode="horizontal" :selected-keys="defaultSelectKey" @menu-item-click="doMenuClick">
-      <a-menu-item :style="{ padding: 0, marginRight: '38px' }" disabled>
-        <div class="title-bar">
-          <img class="logo" src="../assets/star.png" alt=""/>
-          <div class="title">StarryCode</div>
-        </div>
-      </a-menu-item>
-      <a-menu-item
-          v-for="item in routes"
-          :key="item.path"
-          :path="item.path"
-      >
-        {{ item.name }}
-      </a-menu-item>
-    </a-menu>
-  </div>
+  <a-row class="grid-demo" style="margin-bottom: 16px; " align="center" :wrap="false">
+    <a-col flex="100px">
+      <div>100px</div>
+    </a-col>
+    <a-col flex="auto">
+      <div class="menu-demo">
+        <a-menu mode="horizontal" :selected-keys="defaultSelectKey" @menu-item-click="doMenuClick">
+          <a-menu-item :style="{ padding: 0, marginRight: '38px' }" disabled>
+            <div class="title-bar">
+              <img class="logo" src="../assets/star.png" alt=""/>
+              <div class="title">StarryCode</div>
+            </div>
+          </a-menu-item>
+          <a-menu-item
+              v-for="item in routes"
+              :key="item.path"
+              :path="item.path"
+          >
+            {{ item.name }}
+          </a-menu-item>
+        </a-menu>
+      </div>
+    </a-col>
+    <a-col flex="100px">
+      <div>anxr</div>
+    </a-col>
+  </a-row>
+
   <div>{{ defaultSelectKey }}</div>
 </template>
 
@@ -46,7 +57,6 @@ const doMenuClick = async (key: string) => {
   box-sizing: border-box;
   width: 100%;
   padding: 20px;
-  background-color: var(--color-neutral-2);
 }
 
 .title-bar {
