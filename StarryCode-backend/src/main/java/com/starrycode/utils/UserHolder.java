@@ -1,16 +1,16 @@
 package com.starrycode.utils;
 
 
-import com.starrycode.model.domain.User;
+import com.starrycode.model.VO.UserVO;
 
 public class UserHolder {
-    private static final ThreadLocal<User> tl = new ThreadLocal<>();
+    private static final ThreadLocal<UserVO> tl = new ThreadLocal<>();
 
-    public static void saveUser(User user){
+    public static void saveUser(UserVO user){
         tl.set(user);
     }
 
-    public static User getUser(){
+    public static UserVO getUser(){
         return tl.get();
     }
 

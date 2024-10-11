@@ -4,11 +4,13 @@ import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.starrycode.common.BusinessException;
 import com.starrycode.common.ErrorCode;
+import com.starrycode.model.VO.UserVO;
 import com.starrycode.model.domain.User;
 import com.starrycode.service.UserService;
 import com.starrycode.mapper.UserMapper;
 import jakarta.servlet.http.HttpSession;
 import org.apache.commons.lang3.StringUtils;
+import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
 
@@ -69,7 +71,9 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User>
         if (user == null) {
             throw new BusinessException(ErrorCode.PARAMS_ERROR, "用户名或密码错误!");
         }
-        session.setAttribute("user", user);
+        UserVO userVO = new UserVO();
+        BeanUtils.copyProperties(user, userVO);
+        session.setAttribute("user", userVO);
         return "";
     }
 }

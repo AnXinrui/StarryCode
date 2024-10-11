@@ -2,6 +2,7 @@ package com.starrycode.utils;
 
 import com.starrycode.common.BusinessException;
 import com.starrycode.common.ErrorCode;
+import com.starrycode.model.VO.UserVO;
 import com.starrycode.model.domain.User;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -18,7 +19,7 @@ public class LoginInterceptor implements HandlerInterceptor {
         if (user == null) {
             throw new BusinessException(ErrorCode.NOT_LOGIN_ERROR);
         }
-        UserHolder.saveUser((User) user);
+        UserHolder.saveUser((UserVO) user);
         return true;
     }
 

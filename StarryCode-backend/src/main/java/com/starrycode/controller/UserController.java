@@ -4,6 +4,7 @@ import com.starrycode.common.Result;
 import com.starrycode.common.ResultUtils;
 import com.starrycode.model.DTO.user.UserLoginRequest;
 import com.starrycode.model.DTO.user.UserRegisterRequest;
+import com.starrycode.model.VO.UserVO;
 import com.starrycode.model.domain.User;
 import com.starrycode.service.UserService;
 import com.starrycode.utils.UserHolder;
@@ -53,11 +54,15 @@ public class UserController {
      * 获取当前登录用户信息
      */
     @PostMapping("/current")
-    public Result<User> getCurrentUser() {
-        User user = UserHolder.getUser();
+    public Result<UserVO> getCurrentUser() {
+        UserVO user = UserHolder.getUser();
         return ResultUtils.success(user);
     }
 
+    /**
+     * 登出
+     * @param session HttpSession
+     */
     @PostMapping("/logout")
     public Result<?> logout(HttpSession session) {
         session.removeAttribute("user");
